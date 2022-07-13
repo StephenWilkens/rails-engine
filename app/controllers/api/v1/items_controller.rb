@@ -3,9 +3,8 @@ class Api::V1::ItemsController < ApplicationController
 
   # GET /items
   def index
-    @items = Item.all
-
-    render json: @items
+    #@items = ItemSerializer.new(Item.all)
+    render json: ItemSerializer.new(Item.all)
   end
 
   # GET /items/1
