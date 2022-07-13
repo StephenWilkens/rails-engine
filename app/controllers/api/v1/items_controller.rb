@@ -9,7 +9,8 @@ class Api::V1::ItemsController < ApplicationController
 
   # GET /items/1
   def show
-    render json: @item
+    #render json: @item
+    render json: ItemSerializer.new(@item)
   end
 
   # POST /items
