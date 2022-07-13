@@ -28,9 +28,9 @@ class Api::V1::ItemsController < ApplicationController
   # PATCH/PUT /items/1
   def update
     if @item.update(item_params)
-      render json: @item
+      render json: ItemSerializer.new(@item), status: :ok
     else
-      render json: @item.errors, status: :unprocessable_entity
+      render json: {error: 'could not update item'}, status: 404
     end
   end
 
