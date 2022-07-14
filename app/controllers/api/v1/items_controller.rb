@@ -39,6 +39,11 @@ class Api::V1::ItemsController < ApplicationController
     @item.destroy
   end
 
+  def merchant_find
+    item = Item.find(params[:item_id])
+    render json: MerchantSerializer.new(item.merchant)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
