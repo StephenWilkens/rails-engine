@@ -28,9 +28,9 @@ class Item < ApplicationRecord
     find_by_price_min(min).merge(Item.find_by_price_max(max))
   end
 
-  def index_check
+  def invoice_check
     Item.joins(invoice_items: :invoices)
-        .where("invoice.items.count = 0")
+        .where("invoice.items.count = 1")
         .destroy_all
   end
   
