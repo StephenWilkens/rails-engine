@@ -36,6 +36,7 @@ class Api::V1::ItemsController < ApplicationController
 
   # DELETE /items/1
   def destroy
+    @item.invoice_check
     @item.destroy
   end
 
