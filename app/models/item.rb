@@ -29,7 +29,7 @@ class Item < ApplicationRecord
   end
 
   def invoice_check
-    Item.joins(invoice_items: :invoices)
+    Item.joins(invoice_items: :invoice)
         .where("invoice.items.count = 1")
         .destroy_all
   end
